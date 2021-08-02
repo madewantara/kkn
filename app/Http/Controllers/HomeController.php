@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\News;
-use App\Models\Destination;
-use App\Models\Package;
 use Carbon\Carbon;
 use Analytics;
 use Spatie\Analytics\Period;

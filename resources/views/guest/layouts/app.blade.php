@@ -1,15 +1,8 @@
 <!DOCTYPE html>
 <html lang="eng">
     <head>
-        <title>Karimun</title>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-196403921-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'UA-196403921-1');
-        </script>
+        <title>Rukun Warga 03 - Kelurahan Pedalangan</title>
+        <link href="{{ asset('assets/img/guest-assets/logo.png') }}" rel="icon" type="image/png">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale-1, shrink-to-fit=no">
 
@@ -32,6 +25,7 @@
         <link href="{{ asset('guest') }}/css/wonderful-indonesia-revamp.css" rel="stylesheet">
         <link href="{{ asset('guest') }}/css/style.css" rel="stylesheet">
         <link href="{{ asset('guest') }}/css/custom-style.css" rel="stylesheet">
+        <link href="{{ asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     </head>
 
     <body>
@@ -57,6 +51,7 @@
         <script src="{{ asset('guest') }}/js/jquery.timepicker.min.js"></script>
         <script src="{{ asset('guest') }}/js/scrollax.min.js"></script>
         <script src="{{ asset('guest') }}/js/google-map.js"></script>
+        <script src="https://kit.fontawesome.com/701dc208e8.js" crossorigin="anonymous"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
         <script src="{{ asset('guest') }}/js/main.js"></script>
         <script type="text/javascript">
