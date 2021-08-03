@@ -9951,23 +9951,23 @@ h5,
     outline: none;
 }
 .btn.btn-primary {
-    background: #f85959;
-    border: 1px solid #f85959;
+    background: #222831;
+    border: 1px solid #222831;
     color: #fff !important;
 }
 .btn.btn-primary:hover {
-    border: 1px solid #f85959;
+    border: 1px solid #222831;
     background: transparent;
-    color: #f85959 !important;
+    color: #222831 !important;
 }
 .btn.btn-primary.btn-outline-primary {
-    border: 1px solid #f85959;
+    border: 1px solid #222831;
     background: transparent;
-    color: #f85959;
+    color: #222831;
 }
 .btn.btn-primary.btn-outline-primary:hover {
     border: 1px solid transparent;
-    background: #f85959;
+    background: #222831;
     color: #fff;
 }
 .btn.btn-outline-white {
@@ -10565,7 +10565,6 @@ h5,
 .form-control {
     height: 52px !important;
     background: #fff !important;
-    color: #000000 !important;
     font-size: 18px;
     border-radius: 0px;
     -webkit-box-shadow: none !important;
@@ -12157,7 +12156,7 @@ textarea.form-control {
 }
 
 a.btn.btn-floating{
-    background-color: #f85959;
+    background-color: #222831;
     border-radius: 3rem;
     color: white;
     margin-bottom: 40px;
@@ -12165,15 +12164,13 @@ a.btn.btn-floating{
 
 .headergaleri {
     width: 100%;
-    margin-top: 5%;
-    padding: 20px;
     font-size: 40px;
     text-align: center;
     background: white;
     border-radius: 10px;
 }
 
-.container {
+.container.gallery {
     width: 100%;
     display: flex;
     padding: 0 20px;

@@ -1,6 +1,6 @@
-@extends('layouts.app', ['active' => 'News'])
+@extends('layouts.app', ['active' => 'Data Covid-19'])
 
-@section('title', 'News Management')
+@section('title', 'Kelola Data Covid-19')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset("assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css") }}">
@@ -16,44 +16,45 @@
         <div class="card mt-5 pl-5 pr-5 pt-4 pb-4">
             <div class="row">
                 <div class="col-md-12">
-                    <a href="{{ Route('news.create') }}" type="button" class="btn btn-primary btn-sm animation-on-hover float-right mb-2">+ Add Data</a>
+                    <a href="{{ Route('covids.create') }}" type="button" class="btn btn-primary btn-sm animation-on-hover float-right mb-2">+ Tambah Data</a>
                 </div>
             </div>
             <table id="dataTable" class="table table-striped table-bordered display" style="width: 100%">
                 <thead class="text-center align-middle">
                     <tr>
-                        <th style="width: 5%">No</th>
-                        <th style="width: 25%">Name</th>
-                        <th style="width: 40%">Description</th>
-                        <th style="width: 20%">Action</th>
+                        <th>No</th>
+                        <th>Nama Lengkap</th>
+                        <th>Status</th>
+                        <th>Keterangan</th>
+                        <th>Gejala</th>
                     </tr>
                 </thead>
                 <tfoot class="text-center align-middle">
                     <tr>
-                        <th>No</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Action</th>
+                    <th>No</th>
+                        <th>Nama Lengkap</th>
+                        <th>Status</th>
+                        <th>Keterangan</th>
+                        <th>Gejala</th>
                     </tr>
                 </tfoot>
                 <tbody>
-                    @foreach ($news as $news)
+                    @foreach ($covid as $covid)
                         <tr>
                             <td class="text-center align-middle">{{ $loop->iteration }}.</td>
-                            <td class="text-center align-middle">{{ $news->title }}</td>
-                            <td class="text-center align-middle">{{ strip_tags(\Illuminate\Support\Str::limit($news->description ,75)) }}</td>
+                            <td class="text-center align-middle">{{ $covid->nama }}</td>
+                            <td class="text-center align-middle">{{ $covid->status }}</td>
+                            <td class="text-center align-middle">{{ $covid->keterangan }}</td>
+                            <td class="text-center align-middle">{{ $covid->gejala }}</td>
                             <td class="text-center align-middle">
-                                <a href="{{ route('news-detail', ['slug' => $news->slug]) }}" target="_blank" class="btn btn-primary btn-sm ">
-                                    <i class="fas fa-info pl-1 pr-1"></i>
-                                </a>
-                                <a href="{{ route('news.edit', ['news' => $news->slug]) }}" class="btn btn-warning btn-sm ">
+                                <a href="{{ route('covids.edit', ['covid' => $covid->covids_id]) }}" class="btn btn-warning btn-sm ">
                                     <i class="fas fa-pencil-alt"></i>
                                 </a>
-                                <form action="{{ Route('news.destroy', ['news' => $news->slug]) }}" method="POST" class="d-inline">
+                                <form action="{{ Route('covids.destroy', ['covid' => $covid->covids_id]) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('delete')
                                     <button class="btn btn-danger btn-sm text-white" 
-                                            onclick="confirm('Are you sure to delete this record?')">
+                                            onclick=" return confirm('Apakah anda yakin ingin menghapus data ini?')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </form>
@@ -65,14 +66,6 @@
         </div>
         @include('layouts.footers.auth')
     </div>
-    
-    @if (session('status'))
-        <script>
-            window.onload = () => {
-            showNotification('bottom', 'right', 'success', '<?php echo session('status') ?>');
-            };
-        </script>
-    @endif
 @endsection
 
 @push('scripts')
@@ -93,10 +86,6 @@
             $('#dataTable').DataTable( {
                 "pagingType": "numbers",
                 responsive: true,
-                columnDefs: [
-                    { responsivePriority: 2, targets: 2 },
-                    { responsivePriority: 1, targets: [0,1,3] }
-                ]
             } );
         } );
     </script>

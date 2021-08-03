@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Covid;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CovidController extends Controller
 {
@@ -14,7 +15,8 @@ class CovidController extends Controller
      */
     public function index()
     {
-        //
+        $covid = DB::table('covids')->get();
+        return view('wargacovid.index', ['covid' => $covid]);
     }
 
     /**
@@ -24,7 +26,7 @@ class CovidController extends Controller
      */
     public function create()
     {
-        //
+        return view('wargacovid.create');
     }
 
     /**
@@ -35,7 +37,14 @@ class CovidController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $warga = DB::table('covids')->insert([
+            'nama' => $request->inputName,
+            'status' => $request->inputStatus,
+            'keterangan' => $request->inputKeterangan,
+            'gejala' => $request->inputGejala,
+        ]);
+
+        return redirect()->route('covids.index')->with('status', 'Data berhasil ditambahkan!');
     }
 
     /**
@@ -55,9 +64,10 @@ class CovidController extends Controller
      * @param  \App\Models\Covid  $covid
      * @return \Illuminate\Http\Response
      */
-    public function edit(Covid $covid)
+    public function edit($covid)
     {
-        //
+        $covids = DB::table('covids')->where('covids_id', $covid)->first(); 
+        return view('wargacovid.edit', ['covids' => $covids]);
     }
 
     /**
@@ -67,9 +77,17 @@ class CovidController extends Controller
      * @param  \App\Models\Covid  $covid
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Covid $covid)
+    public function update(Request $request, $covid)
     {
-        //
+        $covid = DB::table('covids')
+        ->where('covids_id', $covid)
+        ->update([
+            'nama' => $request->inputName,
+            'status' => $request->inputStatus,
+            'keterangan' => $request->inputKeterangan,
+            'gejala' => $request->inputGejala,
+        ]);
+        return redirect()->route('covids.index')->with('status', 'Data berhasil diubah!');
     }
 
     /**
@@ -78,8 +96,9 @@ class CovidController extends Controller
      * @param  \App\Models\Covid  $covid
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Covid $covid)
+    public function destroy($covid)
     {
-        //
+        Covid::destroy($covid);
+        return redirect()->route('covids.index')->with('status', 'Data berhasil dihapus!');
     }
 }

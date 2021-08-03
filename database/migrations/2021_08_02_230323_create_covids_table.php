@@ -15,8 +15,9 @@ class CreateCovidsTable extends Migration
     {
         Schema::create('covids', function (Blueprint $table) {
             $table->bigIncrements('covids_id');
-            $table->bigInteger('warga_id');
+            $table->string('nama');
             $table->string('status');
+            $table->string('keterangan');
             $table->string('gejala');
             $table->timestamps();
         });

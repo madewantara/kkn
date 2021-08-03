@@ -1,4 +1,4 @@
-@extends('guest.layouts.app')
+@extends('guest.layouts.app', ['title' => 'Rukun Warga 03 - Kelurahan Pedalangan'])
 
 @section('content')
 <div class="container-carousel" id="beranda">
@@ -13,12 +13,12 @@
     </div>
     <!-- end div carousel page -->
     <div class="col-md-9 ftco-animate carousel-title" data-scrollax=" properties: { translateY: '70%' }">
-        <h1 class="mt-4 mb-4 sub-title" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><strong>Rukun Warga 03<br></strong> Kelurahan Pedalangan</h1>
+        <h1 class="mt-4 mb-4 sub-title" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><strong>Rukun Warga 03<br></strong> Kelurahan Pedalangan<br> Kecamatan Banyumanik</h1>
         <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" class="sub-title">Find out where to stay, what's the updated news, and travel packages in Karimun</p>
     </div>
 </div>
 
-<section class="ftco-section" id="tentang">
+<section class="ftco-section" id="tentang" data-aos="fade-up">
     <div class="container">
         <div class="row justify-content-start mb-5 pb-3">
             <h2 class="mb-4"><strong>Tentang</strong> Kami</h2>
@@ -48,7 +48,7 @@
     </div>
 </section>
 
-<section class="ftco-section bg-light" id="kegiatan">
+<section class="ftco-section bg-light" id="kegiatan" data-aos="fade-up">
     <div class="container">
         <div class="row justify-content-start mb-5 pb-3">
             <h2 class="mb-4"><strong>Kegiatan</strong></h2>
@@ -177,27 +177,22 @@
                     </div>
                 </div>
                 </div>
-
             </div>
             <!--/.Second slide-->
-
-            
-
             </div>
             <!--/.Slides-->
-
             </div>
             <!--/.Carousel Wrapper-->
         </div>
     </div>
 </section>
 
-<section class="ftco-section" id="galeri">
+<section class="ftco-section" id="galeri" data-aos="fade-up">
     <div class="container">
         <h2 class="mb-4"><strong>Galeri</strong></h2>
         <div class="headergaleri">
             <div class="row">
-                <div class="container">
+                <div class="container gallery">
                     <div class="slidegaleri"
                     style="background-image: url('https://images.unsplash.com/photo-1567618890770-5fba551e55fb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1568&q=80');">
                     <!-- <h3>Greenland</h3> -->
@@ -244,20 +239,19 @@
                     });
                 }
             }
-
             slidesPlugin(2);
         </script>
     </div>
 </section>
 
-<section class="ftco-section bg-light" id="covid">
-  <div class="container">
+<section class="ftco-section bg-light" id="covid" data-aos="fade-up">
+  <div class="container mt-5">
     <div class="row justify-content-start mb-5 pb-3">
         <h2 class="mb-3"><strong>Pendataan</strong> Covid</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus vero amet hic quam deserunt consequatur? 
             Numquam, ipsam non amet debitis voluptas sint, quibusdam alias deleniti blanditiis molestias repudiandae qui veniam.
         </p>
-        <a class="btn btn-primary mt-1" href="" style="">Link Pendataan</a>
+        <a class="btn btn-primary mt-1" href="/pendataancovid-19" style="">Link Pendataan</a>
     </div>
   </div>
 </section>
@@ -265,5 +259,7 @@
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-
+<script>
+    AOS.init();
+</script>
 @endsection

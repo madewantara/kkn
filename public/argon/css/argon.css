@@ -19337,7 +19337,7 @@ input.datetimepicker[data-color=yellow] + .bootstrap-datetimepicker-widget butto
 }
 
 .backauth{
-    background-image: url('/storage/packages/karimun.jpg');
+    background-image: url('/assets/img/guest-assets/bghome.jpg');
     background-color: #cccccc;
     background-repeat: no-repeat;
     background-size: cover;
@@ -19380,4 +19380,6 @@ ul.custom-ul-reset{
 ul.custom-ul-edit{
   margin-left: -3% !important;
 }
+
+
 /*# sourceMappingURL=style.css.map */

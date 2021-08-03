@@ -17,19 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::group(['guest'], function(){
 	Route::get('/', [App\Http\Controllers\GuestController::class, 'index'])->name('welcome');
 	
-	Route::get('/destinations', [App\Http\Controllers\GuestController::class, 'destination'])->name('destinations');
-	
-	Route::get('/packages', [App\Http\Controllers\GuestController::class, 'package'])->name('packages');
-	
-	Route::get('/news', [App\Http\Controllers\GuestController::class, 'news'])->name('news');
-	
-	Route::get('/contact', [App\Http\Controllers\GuestController::class, 'contact'])->name('contact');
-	
-	Route::get('/destinations/{slug}', [App\Http\Controllers\GuestController::class, 'destinationDetail'])->name('destination-detail');
-	
-	Route::get('/packages/{slug}', [App\Http\Controllers\GuestController::class, 'packageDetail'])->name('package-detail');
-	
-	Route::get('/news/{slug}', [App\Http\Controllers\GuestController::class, 'newsDetail'])->name('news-detail');
+	Route::get('/pendataancovid-19', [App\Http\Controllers\GuestController::class, 'indexCovid'])->name('pendataan');
+
+	Route::post('/storecovid-19', [App\Http\Controllers\GuestController::class, 'store'])->name('storecovid19');
 });
 
 /*
@@ -59,17 +49,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
 	Route::get('icons', function () {return view('pages.icons');})->name('icons'); 
 	Route::get('table-list', function () {return view('pages.tables');})->name('table');
 
-	Route::resource('news', 'App\Http\Controllers\NewsController', ['except' => ['show']]);
-	Route::post('news-attachment-upload', [App\Http\Controllers\NewsController::class, 'attach'])->name('news.attachment.store');
-	Route::post('news-gallery-upload', [App\Http\Controllers\GalleryController::class, 'store'])->name('news.gallery.store');
-
-	Route::resource('packages', 'App\Http\Controllers\PackageController', ['except' => ['show']]);
-	Route::post('packages-attachment-upload', [App\Http\Controllers\PackageController::class, 'attach'])->name('packages.attachment.store');
-	Route::post('packages-gallery-upload', [App\Http\Controllers\GalleryController::class, 'store'])->name('packages.gallery.store');
-	Route::post('packages-gallery-delete', [App\Http\Controllers\GalleryController::class, 'delete'])->name('packages.gallery.delete');
-
-	Route::resource('destinations', 'App\Http\Controllers\DestinationController', ['except' => ['show']]);
-	Route::post('destinations-attachment-upload', [App\Http\Controllers\DestinationController::class, 'attach'])->name('destinations.attachment.store');
-	Route::post('destinations-gallery-upload', [App\Http\Controllers\GalleryController::class, 'storedes'])->name('destinations.gallery.store');
-	Route::post('destinations-gallery-delete', [App\Http\Controllers\GalleryController::class, 'deletedes'])->name('destinations.gallery.delete');
+	Route::resource('covids', 'App\Http\Controllers\CovidController', ['except' => ['show']]);
+	Route::resource('wargas', 'App\Http\Controllers\WargaController', ['except' => ['show']]);
 });

@@ -9,6 +9,6 @@ class Covid extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'covid_id';
-    protected $fillable = ['warga_id', 'status', 'gejala'];
+    protected $primaryKey = 'covids_id';
+    protected $fillable = ['nama', 'status', 'gejala', 'keterangan'];
 }

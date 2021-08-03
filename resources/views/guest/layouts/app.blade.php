@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="eng">
     <head>
-        <title>Rukun Warga 03 - Kelurahan Pedalangan</title>
+        <title>{{$title}}</title>
         <link href="{{ asset('assets/img/guest-assets/logo.png') }}" rel="icon" type="image/png">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale-1, shrink-to-fit=no">
@@ -26,6 +26,7 @@
         <link href="{{ asset('guest') }}/css/style.css" rel="stylesheet">
         <link href="{{ asset('guest') }}/css/custom-style.css" rel="stylesheet">
         <link href="{{ asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     </head>
 
     <body>
@@ -34,6 +35,8 @@
             @yield('content')
             @include('guest.layouts.footer')
         </div>
+
+        @stack('scripts')
 
         {{-- guest JS --}}
         <script src="{{ asset('guest') }}/js/jquery.min.js"></script>
@@ -54,6 +57,7 @@
         <script src="https://kit.fontawesome.com/701dc208e8.js" crossorigin="anonymous"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
         <script src="{{ asset('guest') }}/js/main.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script type="text/javascript">
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-xxxxxxxx-x']);

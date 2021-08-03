@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Analytics;
 use Spatie\Analytics\Period;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -26,24 +27,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $analytics = Analytics::fetchTotalVisitorsAndPageViews(Period::days(6));
-        $page = Analytics::fetchMostVisitedPages(Period::days(6), 5);
-        
-        $startDate = Carbon::parse('2021-01-01');
-        $endDate = Carbon::now();
-        $endDateBefore = Carbon::now()->subMonth();
-        $total = Analytics::fetchTotalVisitorsAndPageViews(Period::create($startDate, $endDate))->sum('pageViews');
-        $totalBefore = Analytics::fetchTotalVisitorsAndPageViews(Period::create($startDate, $endDateBefore))->sum('pageViews');
-        if($totalBefore > 0){
-            $update = ($total - $totalBefore)/$totalBefore;
-        }
-        else{
-            $update = ($total - $totalBefore);
-        }
-        $user = Analytics::fetchUserTypes(Period::create($startDate, $endDate))->countBy('type');
-        $news = News::count();
-        $destination = Destination::count();
-        $package = Package::count();
-        return view('dashboard', compact(['analytics', 'page', 'user', 'total', 'update', 'news', 'destination', 'package']));
+        $warga = DB::table('wargas')->count();
+        $covid = DB::table('covids')->count();
+        return view('dashboard', ['warga' => $warga, 'covid' => $covid]);
     }
 }

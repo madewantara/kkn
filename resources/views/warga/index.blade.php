@@ -1,6 +1,6 @@
-@extends('layouts.app', ['active' => 'Package'])
+@extends('layouts.app', ['active' => 'Data Warga'])
 
-@section('title', 'Package Management')
+@section('title', 'Kelola Data Warga')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
@@ -16,47 +16,59 @@
         <div class="card mt-5 pl-5 pr-5 pt-4 pb-4">
             <div class="row">
                 <div class="col-md-12">
-                    <a href="{{ Route('packages.create') }}" type="button" class="btn btn-primary btn-sm animation-on-hover float-right mb-2">+ Add Data</a>
+                    <a href="{{ Route('wargas.create') }}" type="button" class="btn btn-primary btn-sm animation-on-hover float-right mb-2">+ Tambah Data</a>
                 </div>
             </div>
             <div class="table-responsive">
             <table id="dataTable" class="table table-striped table-bordered display" style="width: 100%">
                 <thead class="text-center align-middle">
                     <tr>
-                        <th style="width: 5%">No</th>
-                        <th style="width: 25%">Name</th>
-                        <th style="width: 40%">Description</th>
-                        <th style="width: 10%">Price</th>
-                        <th style="width: 20%">Action</th>
+                        <th>No</th>
+                        <th>No. KK</th>
+                        <th>NIK</th>
+                        <th>Nama Lengkap</th>
+                        <th>Tempat/Tanggal Lahir</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Agama</th>
+                        <th>Pekerjaan</th>
+                        <th>Alamat</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tfoot class="text-center align-middle">
                     <tr>
                         <th>No</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Action</th>
+                        <th>No. KK</th>
+                        <th>NIK</th>
+                        <th>Nama Lengkap</th>
+                        <th>Tempat/Tanggal Lahir</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Agama</th>
+                        <th>Pekerjaan</th>
+                        <th>Alamat</th>
+                        <th>Aksi</th>
                     </tr>
                 </tfoot>
                 <tbody>
-                    @foreach ($packages as $packages)
+                    @foreach ($warga as $warga)
                         <tr>
                             <td class="text-center align-middle">{{ $loop->iteration }}.</td>
-                            <td class="text-center align-middle">{{ $packages->name }}</td>
-                            <td class="text-center align-middle">{{ strip_tags(\Illuminate\Support\Str::limit($packages->description ,75)) }}</td>
-                            <td class="text-center align-middle">{{ number_format($packages->price, 0) }}</td>
+                            <td class="text-center align-middle">{{ $warga->nokk }}</td>
+                            <td class="text-center align-middle">{{ $warga->nik }}</td>
+                            <td class="text-center align-middle">{{ $warga->name }}</td>
+                            <td class="text-center align-middle">{{ $warga->ttl }}</td>
+                            <td class="text-center align-middle">{{ $warga->kelamin }}</td>
+                            <td class="text-center align-middle">{{ $warga->agama }}</td>
+                            <td class="text-center align-middle">{{ $warga->pekerjaan }}</td>
+                            <td class="text-center align-middle">{{ $warga->alamat }}</td>
                             <td class="text-center align-middle">
-                                <a href="{{ route('package-detail', ['slug' => $packages->slug]) }}" target="_blank" class="btn btn-primary btn-sm ">
-                                    <i class="fas fa-info pl-1 pr-1"></i>
-                                </a>
-                                <a href="{{ route('packages.edit', ['package' => $packages->slug]) }}" class="btn btn-warning btn-sm ">
+                                <a href="{{ route('wargas.edit', ['warga' => $warga->warga_id]) }}" class="btn btn-warning btn-sm ">
                                     <i class="fas fa-pencil-alt"></i>
                                 </a>
-                                <form action="{{ Route('packages.destroy', ['package' => $packages->slug]) }}" method="POST" class="d-inline">
+                                <form action="{{ route('wargas.destroy', ['warga' => $warga->warga_id]) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('delete')
-                                    <button class="btn btn-danger btn-sm text-white" onclick="return confirm('Are you sure to delete this record?')"><i class="fas fa-trash"></i></button>
+                                    <button class="btn btn-danger btn-sm text-white" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')"><i class="fas fa-trash"></i></button>
                                 </form>
                             </td>
                         </tr>
@@ -96,8 +108,9 @@
                 "pagingType": "numbers",
                 responsive: true,
                 columnDefs: [
-                    { responsivePriority: 2, targets: 2 },
-                    { responsivePriority: 1, targets: [0,1,3] }
+                    { responsivePriority: 3, targets: [1,4,5,6,7] },
+                    { responsivePriority: 2, targets: [2,0,3,8,9] },
+                    { className: "none", "targets": [1,4,5,6,7] }
                 ]
             } );
         } );

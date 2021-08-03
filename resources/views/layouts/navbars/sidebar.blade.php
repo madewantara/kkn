@@ -6,7 +6,7 @@
         </button>
         <!-- Brand -->
         <a class="navbar-brand pt-0" href="{{ route('home') }}">
-            <img src="{{ asset('argon') }}/img/brand/blue.png" class="navbar-brand-img" alt="...">
+            <img src="{{ asset('assets') }}/img/guest-assets/logo.png" class="navbar-brand-img" alt="..."> <b>Rukun Warga 03</b>
         </a>
         <!-- User -->
         <ul class="nav align-items-center d-md-none">
@@ -61,18 +61,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ $active == 'Destination' ? 'active' : '' }}" href="{{ route('destinations.index') }}">
-                        <i class="ni ni-bullet-list-67 {{ $active == 'Destination' ? 'text-primary' : 'text-default' }}"></i> {{ __('Destination Management') }}
+                    <a class="nav-link {{ $active == 'Data Warga' ? 'active' : '' }}" href="{{ route('wargas.index') }}">
+                        <i class="ni ni-bullet-list-67 {{ $active == 'Data Warga' ? 'text-primary' : 'text-default' }}"></i> {{ __('Kelola Data Warga') }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ $active == 'News' ? 'active' : '' }}" href="{{ Route('news.index') }}">
-                        <i class="ni ni-archive-2 {{ $active == 'News' ? 'text-primary' : 'text-default' }}"></i> {{ __('News Management') }}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ $active == 'Package' ? 'active' : '' }}" href="{{ Route('packages.index') }}">
-                        <i class="ni ni-bag-17 {{ $active == 'Package' ? 'text-primary' : 'text-default' }}"></i> {{ __('Package Management') }}
+                    <a class="nav-link {{ $active == 'Data Covid-19' ? 'active' : '' }}" href="{{ Route('covids.index') }}">
+                        <i class="ni ni-archive-2 {{ $active == 'Data Covid-19' ? 'text-primary' : 'text-default' }}"></i> {{ __('Kelola Data Covid-19') }}
                     </a>
                 </li>
             </ul>
