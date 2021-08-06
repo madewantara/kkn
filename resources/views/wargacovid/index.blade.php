@@ -3,10 +3,10 @@
 @section('title', 'Kelola Data Covid-19')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset("assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css") }}">
-    <link rel="stylesheet" href="{{ asset("assets/vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css") }}">
-    <link rel="stylesheet" href="{{ asset("assets/vendor/datatables.net-select-bs4/css/select.bootstrap4.min.css") }}">
-    <link rel="stylesheet" href="{{ asset("assets/vendor/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css") }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/datatables.net-select-bs4/css/select.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}">
 @endsection
 
 @section('content')
@@ -19,6 +19,7 @@
                     <a href="{{ Route('covids.create') }}" type="button" class="btn btn-primary btn-sm animation-on-hover float-right mb-2">+ Tambah Data</a>
                 </div>
             </div>
+            <div class="table-responsive">
             <table id="dataTable" class="table table-striped table-bordered display" style="width: 100%">
                 <thead class="text-center align-middle">
                     <tr>
@@ -27,15 +28,17 @@
                         <th>Status</th>
                         <th>Keterangan</th>
                         <th>Gejala</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tfoot class="text-center align-middle">
                     <tr>
-                    <th>No</th>
+                        <th>No</th>
                         <th>Nama Lengkap</th>
                         <th>Status</th>
                         <th>Keterangan</th>
                         <th>Gejala</th>
+                        <th>Aksi</th>
                     </tr>
                 </tfoot>
                 <tbody>
@@ -63,9 +66,18 @@
                     @endforeach
                 </tbody>
             </table>
+            </div>
         </div>
         @include('layouts.footers.auth')
     </div>
+
+    @if (session('status'))
+        <script>
+            window.onload = () => {
+                showNotification('bottom', 'right', 'success', '<?php echo session('status') ?>');
+            };
+        </script>
+    @endif
 @endsection
 
 @push('scripts')
@@ -76,7 +88,7 @@
     <script src="{{ asset("assets/vendor/datatables.net-buttons/js/buttons.html5.min.js") }}"></script>
     <script src="{{ asset("assets/vendor/datatables.net-buttons/js/buttons.flash.min.js") }}"></script>
     <script src="{{ asset("assets/vendor/datatables.net-buttons/js/buttons.print.min.js") }}"></script>
-    <script src="{{ asset("assets/vendor/datatables.net-select/js/dataTables.select.min.js") }}"></script>
+    <script src="{{ asset("assets/vendor/datatables.net-select/js/dataTables.select.min.js") }}""></script>
     <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.js"></script>
 
     <script src="{{ asset("assets/vendor/bootstrap-notify/bootstrap-notify.min.js") }}"></script>

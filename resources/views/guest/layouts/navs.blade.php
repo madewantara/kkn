@@ -1,4 +1,4 @@
-@if($title == 'Pendataan Covid - Rukun Warga 03')
+@if($title == 'Pendataan Covid-19 - Rukun Warga 03')
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
             <a class="navbar-brand" href="{{ route('welcome') }}"><img src="{{ asset('assets/img/guest-assets/logo.png') }}" alt="logo" style="width:40px; height:auto; margin-right:5%; flex:column">Rukun Warga 03</a>
@@ -27,7 +27,7 @@
                     <li class="nav-item" title="destinations"><a href="#tentang" class="nav-link">Tentang Kami</a></li>
                     <li class="nav-item" title="destinations"><a href="#kegiatan" class="nav-link">Kegiatan</a></li>
                     <li class="nav-item" title="packages"><a href="#galeri" class="nav-link">Galeri</a></li>
-                    <li class="nav-item" title="news"><a href="#covid" class="nav-link">Pendataan Covid</a></li>
+                    <li class="nav-item" title="news"><a href="#covid" class="nav-link">Pendataan Covid-19</a></li>
                     <li class="nav-item" title="news"><a href="#kontak" class="nav-link">Kontak Kami</a></li>
                 </ul>
             </div>

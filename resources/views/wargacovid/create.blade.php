@@ -28,7 +28,7 @@
                             <div class="form-group">
                                 <label for="inputStatus">Status</label>
                                 <select id="inputStatus" name="inputStatus" class="form-control rounded" required value="{{ old('inputStatus') }}">
-                                    <option value="none">-- Pilih Status --</option>
+                                    <option value="">-- Pilih Status --</option>
                                     <option value="Positif">Positif</option>
                                     <option value="Negatif">Negatif</option>
                                 </select>
@@ -41,11 +41,11 @@
                             <div class="form-group">
                                 <label for="inputKeterangan">Keterangan</label>
                                 <select id="inputKeterangan" name="inputKeterangan" class="form-control rounded" required value="{{ old('inputKeterangan') }}">
-                                    <option value="none">-- Pilih Keterangan --</option>
+                                    <option value="">-- Pilih Keterangan --</option>
                                     <option value="Status Baru">Status Baru</option>
                                     <option value="Memperbaharui Status">Memperbaharui Status</option>
                                 </select>
-                                <div class="invalid-feedback">*Lengkapi keterangan dengan benar.</div>
+                                <div class="invalid-feedback">*Pilih salah satu keterangan.</div>
                             </div>
                         </div>
                     </div>

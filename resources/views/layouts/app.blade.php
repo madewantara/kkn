@@ -19,7 +19,7 @@
 
         <title>@yield('title')</title>
         <!-- Favicon -->
-        <link href="{{ asset('argon') }}/img/brand/favicon.png" rel="icon" type="image/png">
+        <link href="{{ asset('assets/img/guest-assets/logo.png') }}" rel="icon" type="image/png">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
         <script src="https://kit.fontawesome.com/701dc208e8.js" crossorigin="anonymous"></script>

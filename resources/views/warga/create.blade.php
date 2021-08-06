@@ -55,7 +55,12 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="kelamin">Jenis Kelamin</label>
-                                <input type="text" name="kelamin" id="kelamin" class="form-control rounded" placeholder="Jenis Kelamin" required value="{{ old('kelamin') }}">
+                                <select id="kelamin" name="kelamin" class="form-control rounded" required value="{{ old('kelamin') }}">
+                                    <option value="">-- Pilih Jenis Kelamin --</option>
+                                    <option value="Laki - Laki">Laki - Laki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                </select>
                                 <div class="invalid-feedback">*Lengkapi jenis kelamin dengan benar.</div>
                             </div>
                         </div>
@@ -64,7 +69,16 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="agama">Agama</label>
-                                <input type="text" name="agama" id="agama" class="form-control rounded" placeholder="Agama" required value="{{ old('agama') }}">
+                                <select id="agama" name="agama" class="form-control rounded" required value="{{ old('agama') }}">
+                                    <option value="">-- Pilih Agama --</option>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Kristen">Kristen</option>
+                                    <option value="Katolik">Katolik</option>
+                                    <option value="Hindu">Hindu</option>
+                                    <option value="Buddha">Buddha</option>
+                                    <option value="Konghucu">Konghucu</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                </select>
                                 <div class="invalid-feedback">*Lengkapi agama dengan benar.</div>
                             </div>
                         </div>

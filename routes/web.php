@@ -44,11 +44,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 	Route::post('/profile/save_image', [App\Http\Controllers\ProfileController::class, 'save_image'])->name('save.profile.picture');
 
-	Route::get('upgrade', function () {return view('pages.upgrade');})->name('upgrade'); 
-	Route::get('map', function () {return view('pages.maps');})->name('map');
-	Route::get('icons', function () {return view('pages.icons');})->name('icons'); 
-	Route::get('table-list', function () {return view('pages.tables');})->name('table');
-
 	Route::resource('covids', 'App\Http\Controllers\CovidController', ['except' => ['show']]);
 	Route::resource('wargas', 'App\Http\Controllers\WargaController', ['except' => ['show']]);
 });

@@ -1,4 +1,4 @@
-@extends('guest.layouts.app', ['title' => 'Pendataan Covid - Rukun Warga 03'])
+@extends('guest.layouts.app', ['title' => 'Pendataan Covid-19 - Rukun Warga 03'])
 
 @section('content')
 <div class="container-carousel">
@@ -13,16 +13,24 @@
     </div>
 
     <div class="col-md-9 ftco-animate carousel-title" data-scrollax=" properties: { translateY: '70%' }">
-        <h1 class="mb-4 sub-title" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><strong>Pendataan<br>Covid</strong></h1>
-        <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" class="sub-title">Find the destinations you want to visit</p>
+        <h1 class="sub-title" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><strong>Pendataan<br></strong>Covid-19</h1>
+        <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" class="sub-title">Pendataan covid-19 rukun warga 03 Kelurahan Pedalangan Kecamatan Banyumanik<br> Kota Semarang, Jawa Tengah</p>
     </div>
 </div>
 
-<section class="ftco-section ftco-degree-bg">
+<section class="ftco-section ftco-degree-bg" data-aos="fade-up">
     <div class="container mb-5" style="display:block;">
         <h2>FORM PENDATAAN COVID</h2><hr>
         <form class="form-create" id="needs-validation" role="form" method="POST" action="{{ Route('storecovid19') }}" enctype="multipart/form-data" onkeydown="return event.key != 'Enter';" novalidate>
             @csrf
+            @if (session('status'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('status') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
@@ -37,7 +45,7 @@
                     <div class="form-group">
                         <label for="inputStatus">Status</label>
                         <select id="inputStatus" name="inputStatus" class="form-control rounded" required>
-                            <option value="none">-- Pilih Status --</option>
+                            <option value="">-- Pilih Status --</option>
                             <option value="Positif">Positif</option>
                             <option value="Negatif">Negatif</option>
                         </select>
@@ -50,11 +58,11 @@
                     <div class="form-group">
                         <label for="inputKeterangan">Keterangan</label>
                         <select id="inputKeterangan" name="inputKeterangan" class="form-control rounded" required>
-                            <option value="none">-- Pilih Keterangan --</option>
+                            <option value="">-- Pilih Keterangan --</option>
                             <option value="Status Baru">Status Baru</option>
                             <option value="Memperbaharui Status">Memperbaharui Status</option>
                         </select>
-                        <div class="invalid-feedback">*Lengkapi keterangan dengan benar.</div>
+                        <div class="invalid-feedback">*Pilih salah satu keterangan.</div>
                     </div>
                 </div>
             </div>
@@ -93,6 +101,9 @@
         };
     </script>
 @endif
+<script>
+    AOS.init();
+</script>
 @endsection
 
 @push('scripts')

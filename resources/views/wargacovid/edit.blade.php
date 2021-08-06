@@ -29,7 +29,7 @@
                             <div class="form-group">
                                 <label for="inputStatus">Status</label>
                                 <select id="inputStatus" name="inputStatus" class="form-control rounded" required value="{{ old('inputStatus') }}">
-                                    <option value="none">-- Pilih Status --</option>
+                                    <option value="">-- Pilih Status --</option>
                                     <option value="Positif" <?php if ($covids->status == "Positif"){echo 'selected';}?>>Positif</option>
                                     <option value="Negatif" <?php if ($covids->status == "Negatif"){echo 'selected';}?>>Negatif</option>
                                 </select>
@@ -42,11 +42,11 @@
                             <div class="form-group">
                                 <label for="inputKeterangan">Keterangan</label>
                                 <select id="inputKeterangan" name="inputKeterangan" class="form-control rounded" required value="{{ old('inputKeterangan') ?? $covids->keterangan}}">
-                                    <option value="none">-- Pilih Keterangan --</option>
+                                    <option value="">-- Pilih Keterangan --</option>
                                     <option value="Status Baru" <?php if ($covids->keterangan == "Status Baru"){echo 'selected';}?>>Status Baru</option>
                                     <option value="Memperbaharui Status" <?php if ($covids->keterangan == "Memperbaharui Status"){echo 'selected';}?>>Memperbaharui Status</option>
                                 </select>
-                                <div class="invalid-feedback">*Lengkapi keterangan dengan benar.</div>
+                                <div class="invalid-feedback">*Pilih salah satu keterangan.</div>
                             </div>
                         </div>
                     </div>
