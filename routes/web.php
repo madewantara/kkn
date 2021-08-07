@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 | *Custom addition* Written below is for guest
 |
 */
+
+Route::get('/foo', function () {
+	Artisan::call('storage:link');
+ });
 
 Route::group(['guest'], function(){
 	Route::get('/', [App\Http\Controllers\GuestController::class, 'index'])->name('welcome');

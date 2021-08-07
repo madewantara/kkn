@@ -55,7 +55,12 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="kelamin">Jenis Kelamin</label>
-                                <input type="text" name="kelamin" id="kelamin" class="form-control rounded" placeholder="Jenis Kelamin" required value="{{ old('kelamin') ?? $wargas->kelamin}}">
+                                <select id="kelamin" name="kelamin" class="form-control rounded" required value="{{ old('kelamin') ?? $wargas->kelamin}}">
+                                    <option value="">-- Pilih Jenis Kelamin --</option>
+                                    <option value="Laki - Laki" <?php if ($wargas->kelamin == "Laki - Laki"){echo "selected";}?>>Laki - Laki</option>
+                                    <option value="Perempuan" <?php if ($wargas->kelamin == "Perempuan"){echo "selected";}?>>Perempuan</option>
+                                    <option value="Lainnya" <?php if ($wargas->kelamin == "Lainnya"){echo "selected";}?>>Lainnya</option>
+                                </select>
                                 <div class="invalid-feedback">*Lengkapi jenis kelamin dengan benar.</div>
                             </div>
                         </div>
@@ -64,7 +69,16 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="agama">Agama</label>
-                                <input type="text" name="agama" id="agama" class="form-control rounded" placeholder="Agama" required value="{{ old('agama') ?? $wargas->agama}}">
+                                <select id="agama" name="agama" class="form-control rounded" required value="{{ old('agama') ?? $wargas->agama }}">
+                                    <option value="">-- Pilih Agama --</option>
+                                    <option value="Islam" <?php if ($wargas->agama == "Islam"){echo "selected";}?>>Islam</option>
+                                    <option value="Kristen" <?php if ($wargas->agama == "Kristen"){echo "selected";}?>>Kristen</option>
+                                    <option value="Katolik" <?php if ($wargas->agama == "Katolik"){echo "selected";}?>>Katolik</option>
+                                    <option value="Hindu" <?php if ($wargas->agama == "Hindu"){echo "selected";}?>>Hindu</option>
+                                    <option value="Buddha" <?php if ($wargas->agama == "Buddha"){echo "selected";}?>>Buddha</option>
+                                    <option value="Konghucu" <?php if ($wargas->agama == "Konghucu"){echo "selected";}?>>Konghucu</option>
+                                    <option value="Lainnya" <?php if ($wargas->agama == "Lainnya"){echo "selected";}?>>Lainnya</option>
+                                </select>
                                 <div class="invalid-feedback">*Lengkapi agama dengan benar.</div>
                             </div>
                         </div>
